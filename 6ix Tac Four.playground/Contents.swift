@@ -1,18 +1,18 @@
 /* property of myselfs
- copyright 1969-2020 Alex BangsU LTD.
- all rights reserved, including your mom*/
-
+ copyright 2020 Alex Bangu
+ all rights reserved */
 
 import UIKit
 import PlaygroundSupport
 import AVFoundation
 
-let kBoardWidth = 11
+let kBoardWidth = 3
 let kBoardHeight = kBoardWidth
-let kWinningLength = 11
+let kWinningLength = kBoardWidth
 
-var xTurn = true // Declare xTurn, holds the current turn
-var player: AVAudioPlayer? // Declare optional of AVAudioPlayer
+var xTurn = true
+var isGameOver = false
+var player: AVAudioPlayer?
 
 enum LineDirection {
     case top
@@ -25,7 +25,6 @@ enum LineDirection {
     case bottomright
 }
 
-//Function to initiate the sound
 func playSound(soundName: String, fileType: String) {
     let url = Bundle.main.url(forResource: soundName, withExtension: fileType)!
     
@@ -41,7 +40,6 @@ func playSound(soundName: String, fileType: String) {
 }
 
 class GameController: UIView {
-    
     var board = Array(repeating: Array(repeating: Tile(), count: kBoardWidth), count: kBoardHeight)
     
     override init(frame: CGRect) {
@@ -49,7 +47,7 @@ class GameController: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) is not supported")
     }
     
     convenience init() {
@@ -57,12 +55,10 @@ class GameController: UIView {
         self.init(frame: viewFrame)
         
         self.backgroundColor = .black
-        //color when the flip takes place
         resetBoard(initial: true)
     }
-//changes the whole page, i.e. resets the board after the game ends
+
     @objc func resetBoard(initial: Bool) {
-        
         if !initial {
             playSound(soundName: "Page Flip", fileType: "wav")
         }
@@ -79,6 +75,22 @@ class GameController: UIView {
                 self.addSubview(board[row][col])
             }
         }
+        
+        xTurn = true
+        isGameOver = false
+    }
+    
+    func runAI() {
+        var row = Int.random(in: 0..<kBoardWidth)
+        var col = Int.random(in: 0..<kBoardHeight)
+        
+        while board[row][col].getSelection() != "empty" {
+            row = Int.random(in: 0..<kBoardWidth)
+            col = Int.random(in: 0..<kBoardHeight)
+        }
+        
+        board[row][col].setSelection(change: (xTurn ? "x" : "o"))
+        checkForWin(row: row, col: col)
     }
     
     func getWinningSpots(row: Int, col: Int, direction: LineDirection) -> [[Int]] {
@@ -127,7 +139,6 @@ class GameController: UIView {
         var winningSpots = [[Int]]()
         var fullCount = 0
         
-            // Vertical win
         var verticalSpots = getWinningSpots(row: row, col: col, direction: .top)
         verticalSpots += getWinningSpots(row: row, col: col+1, direction: .bottom)
         if verticalSpots.count >= kWinningLength {
@@ -164,7 +175,7 @@ class GameController: UIView {
             print("We did not win top right diagnally: \(topRightSpots)")
         }
             
-            // Check for draw
+        // Check to see if there's a draw
         if winningSpots.count == 0 {
             for tiles in board {
                 for tile in tiles {
@@ -180,6 +191,8 @@ class GameController: UIView {
         }
         
         if !winningSpots.isEmpty || fullCount == (kBoardWidth * kBoardHeight) {
+            isGameOver = true
+            
             Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(resetBoard), userInfo: nil, repeats: false)
             
             for tiles in board {
@@ -198,7 +211,6 @@ class GameController: UIView {
 }
 
 class Tile: UIView {
-    
     var selection = "empty"
     
     override init(frame: CGRect) {
@@ -231,7 +243,6 @@ class Tile: UIView {
     }
     
     func setSelection(change: String) {
-        
         if selection == "empty" {
             let selectionFrame = CGRect(x: self.frame.width / 4, y: self.frame.width / 4, width: self.frame.width / 2, height: self.frame.height / 2)
             
@@ -258,26 +269,22 @@ class Tile: UIView {
         else {
             print("Slot is taken!")
         }
-        
     }
     
     func setWin(x: Bool) {
         let selectionFrame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-        
+
         let winFrame = UIView(frame: selectionFrame)
-        
+
         if (x) {
             winFrame.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 0.5)
-        }
-        else {
+        } else {
             winFrame.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 0.5)
         }
-        
+
         UIView.transition(with: self, duration: 0.30, options: [.transitionFlipFromTop, .curveEaseOut], animations: {
             self.addSubview(winFrame)
-        }, completion: nil )
-        
-        
+        }, completion: nil)
     }
     
     func getSelection() -> String {
@@ -300,7 +307,13 @@ class Tile: UIView {
         
         controller.checkForWin(row: row, col: col)
         
-        if changeTurn {
+        if changeTurn && !isGameOver {
+            xTurn = !xTurn
+        }
+        
+        if !xTurn {
+            // Run AI
+            controller.runAI()
             xTurn = !xTurn
         }
     }
