@@ -68,7 +68,6 @@ class GameController: UIView {
         }
         
         for view in self.subviews {
-            
             UIView.transition(with: self, duration: 0.3, options: [.transitionCurlUp, .curveEaseOut], animations: {
                 view.removeFromSuperview()
             }, completion: nil )
@@ -100,27 +99,18 @@ class GameController: UIView {
         /* algorithm that checks for winning scenario*/
         var newCol = col
         var newRow = row
-        switch direction {
-            case .top:
-                newCol -= 1
-            case .bottom:
-                newCol += 1
-            case .left:
-                newRow -= 1
-            case .right:
-                newRow += 1
-            case .topleft:
-                newRow -= 1
-                newCol -= 1
-            case .bottomright:
-                newRow += 1
-                newCol += 1
-            case .topright:
-                newRow += 1
-                newCol -= 1
-            case .bottomleft:
-                newRow -= 1
-                newCol += 1
+        
+        if [LineDirection.top, LineDirection.topleft, LineDirection.topright].contains(direction) {
+            newCol -= 1
+        }
+        if [LineDirection.bottom, LineDirection.bottomright, LineDirection.bottomleft].contains(direction) {
+            newCol += 1
+        }
+        if [LineDirection.left, LineDirection.topleft, LineDirection.bottomleft].contains(direction) {
+            newRow -= 1
+        }
+        if [LineDirection.right, LineDirection.bottomright, LineDirection.topright].contains(direction)  {
+            newRow += 1
         }
         
         var result = [[Int]]()
@@ -144,7 +134,7 @@ class GameController: UIView {
             winningSpots += verticalSpots
             print("We won vertically: \(winningSpots)")
         } else {
-               print("We did not win vertically: \(verticalSpots)")
+            print("We did not win vertically: \(verticalSpots)")
         }
             
         var horizontalSpots = getWinningSpots(row: row, col: col, direction: .left)
@@ -190,7 +180,6 @@ class GameController: UIView {
         }
         
         if !winningSpots.isEmpty || fullCount == (kBoardWidth * kBoardHeight) {
-            
             Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(resetBoard), userInfo: nil, repeats: false)
             
             for tiles in board {
@@ -201,14 +190,10 @@ class GameController: UIView {
             
             if fullCount == (kBoardWidth * kBoardHeight) {
                 playSound(soundName: "Snap", fileType: "wav")
-            }
-            else {
+            } else {
                 playSound(soundName: "Ding", fileType: "wav")
             }
-            
         }
-        
-        
     }
 }
 
