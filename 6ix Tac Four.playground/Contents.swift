@@ -7,9 +7,9 @@ import UIKit
 import PlaygroundSupport
 import AVFoundation
 
-let kBoardWidth = 6
-let kBoardHeight = 6
-let kWinningLength = 6
+let kBoardWidth = 11
+let kBoardHeight = kBoardWidth
+let kWinningLength = 11
 
 var xTurn = true // Declare xTurn, holds the current turn
 var player: AVAudioPlayer? // Declare optional of AVAudioPlayer
@@ -42,7 +42,7 @@ func playSound(soundName: String, fileType: String) {
 
 class GameController: UIView {
     
-    var board = Array(repeating: Array(repeating: Tile(), count: 6), count: 6)
+    var board = Array(repeating: Array(repeating: Tile(), count: kBoardWidth), count: kBoardHeight)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,8 +74,8 @@ class GameController: UIView {
             }, completion: nil )
         }
         
-        for row in 0...5 {
-            for col in 0...5 {
+        for row in 0..<kBoardWidth {
+            for col in 0..<kBoardHeight {
                 board[row][col] = Tile(boardWidth: self.frame.width, row: row, col: col)
                 self.addSubview(board[row][col])
             }
@@ -85,7 +85,7 @@ class GameController: UIView {
     func getWinningSpots(row: Int, col: Int, direction: LineDirection) -> [[Int]] {
         print("getWinningSpots(\(row), \(col), \(direction)")
         
-        guard row >= 0 && row <= 5 && col >= 0 && col <= 5 else {
+        guard row >= 0 && row < kBoardWidth && col >= 0 && col < kBoardHeight else {
             print("row/col is not within board")
             return []
         }
@@ -189,7 +189,7 @@ class GameController: UIView {
             board[spot[0]][spot[1]].setWin(x: !xTurn)
         }
         
-        if !winningSpots.isEmpty || fullCount == 36 {
+        if !winningSpots.isEmpty || fullCount == (kBoardWidth * kBoardHeight) {
             
             Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(resetBoard), userInfo: nil, repeats: false)
             
@@ -199,7 +199,7 @@ class GameController: UIView {
                 }
             }
             
-            if fullCount == 36 {
+            if fullCount == (kBoardWidth * kBoardHeight) {
                 playSound(soundName: "Snap", fileType: "wav")
             }
             else {
@@ -221,7 +221,7 @@ class Tile: UIView {
     }
     
     convenience init(boardWidth: CGFloat, row: Int, col: Int) {
-        let width = boardWidth / 6
+        let width = boardWidth / CGFloat(kBoardWidth)
         let x = CGFloat(row) * width
         let y = CGFloat(col) * width
         let frame = CGRect(x: x, y: y, width: width, height: width)
