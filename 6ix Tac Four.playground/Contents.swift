@@ -39,16 +39,6 @@ func playSound(soundName: String, fileType: String) {
     }
 }
 
-func checkBoard1TDD() {
-//    after PlayerOne turn, check around most recent cellvalue = 1 for cellvalue = 1 topLeft of previous cellvalue = 1 {
-//            if cellvalue = 1  found, check topLeft for cellvalue = 1 {
-//                if cellvalue = 1  found check topleft for cellvalue = 1 {
-//                    if cellvalue = 1 found, PlayerOne wins, play ding.wav {
-//                }
-//            }
-//        }
-//    }
-}
 class GameController: UIView {
     
     var board = Array(repeating: Array(repeating: Tile(), count: 6), count: 6)
@@ -91,48 +81,51 @@ class GameController: UIView {
         }
     }
     
-    func getWinningSpots(row: Int, col: Int, direction: LineDirection) -> [[Int]]? {
+    func getWinningSpots(row: Int, col: Int, direction: LineDirection) -> [[Int]] {
         print("getWinningSpots(\(row), \(col), \(direction)")
         
         guard row >= 0 && row <= 5 && col >= 0 && col <= 5 else {
             print("row/col is not within board")
-            return nil
+            return []
         }
         
         guard board[row][col].getSelection() == (xTurn ? "x" : "o") else {
             print("row/col (\(board[row][col].getSelection())) is not the current user's selection: \(xTurn ? "x" : "o")")
-            return nil
+            return []
+        }
+        
+        print("Checking direction \(direction)")
+        
+        /* algorithm that checks for winning scenario*/
+        var newCol = col
+        var newRow = row
+        switch direction {
+            case .top:
+                newCol -= 1
+            case .bottom:
+                newCol += 1
+            case .left:
+                newRow -= 1
+            case .right:
+                newRow += 1
+            case .topleft:
+                newRow -= 1
+                newCol -= 1
+            case .bottomright:
+                newRow += 1
+                newCol += 1
+            case .topright:
+                newRow += 1
+                newCol -= 1
+            case .bottomleft:
+                newRow -= 1
+                newCol += 1
         }
         
         var result = [[Int]]()
-        switch direction {
-            case .top:
-                result = self.getWinningSpots(row: row, col: col-1, direction: direction) ?? []
-                print("Top result: \(result)")
-            case .bottom:
-                result = self.getWinningSpots(row: row, col: col+1, direction: direction) ?? []
-                print("Bottom result: \(result)")
-            case .left:
-                result = self.getWinningSpots(row: row-1, col: col, direction: direction) ?? []
-                print("Left result: \(result)")
-            case .right:
-                result = self.getWinningSpots(row: row+1, col: col, direction: direction) ?? []
-                print("Right result: \(result)")
-            case .topleft:
-                result = self.getWinningSpots(row: row-1, col: col-1, direction: direction) ?? []
-                print("Top left result: \(result)")
-            case .bottomright:
-                result = self.getWinningSpots(row: row+1, col: col+1, direction: direction) ?? []
-                print("Bottom right result: \(result)")
-            case .topright:
-                result = self.getWinningSpots(row: row+1, col: col-1, direction: direction) ?? []
-                print("Top right result: \(result)")
-            case .bottomleft:
-                result = self.getWinningSpots(row: row-1, col: col+1, direction: direction) ?? []
-                print("Bottom left result: \(result)")
-        }
-        
+        result = self.getWinningSpots(row: newRow, col: newCol, direction: direction)
         result += [[row, col]]
+        
         print("Returning result: \(result)")
         return result
     }
@@ -144,36 +137,44 @@ class GameController: UIView {
         var fullCount = 0
         
             // Vertical win
-        var verticalSpots = getWinningSpots(row: row, col: col, direction: .top) ?? []
-        verticalSpots += getWinningSpots(row: row, col: col+1, direction: .bottom) ?? []
+        var verticalSpots = getWinningSpots(row: row, col: col, direction: .top)
+        verticalSpots += getWinningSpots(row: row, col: col+1, direction: .bottom)
         if verticalSpots.count >= 4 {
             winningSpots += verticalSpots
             print("We won vertically: \(winningSpots)")
+        } else {
+               print("We did not win vertically: \(verticalSpots)")
         }
             
-        var horizontalSpots = getWinningSpots(row: row, col: col, direction: .left) ?? []
-        horizontalSpots += getWinningSpots(row: row+1, col: col, direction: .right) ?? []
+        var horizontalSpots = getWinningSpots(row: row, col: col, direction: .left)
+        horizontalSpots += getWinningSpots(row: row+1, col: col, direction: .right)
         if horizontalSpots.count >= 4 {
             winningSpots += horizontalSpots
             print("We won horizontally: \(winningSpots)")
+        } else {
+            print("We did not win horizontally: \(horizontalSpots)")
         }
             
-        var topLeftSpots = getWinningSpots(row: row, col: col, direction: .topleft) ?? []
-        topLeftSpots += getWinningSpots(row: row+1, col: col+1, direction: .bottomright) ?? []
+        var topLeftSpots = getWinningSpots(row: row, col: col, direction: .topleft)
+        topLeftSpots += getWinningSpots(row: row+1, col: col+1, direction: .bottomright)
         if topLeftSpots.count >= 4 {
             winningSpots += topLeftSpots
             print("We won top left diagnally: \(winningSpots)")
+        } else {
+            print("We did not win top left diagnally: \(topLeftSpots)")
         }
             
-        var topRightSpots = getWinningSpots(row: row, col: col, direction: .topright) ?? []
-        topRightSpots += getWinningSpots(row: row-1, col: col-1, direction: .bottomleft) ?? []
+        var topRightSpots = getWinningSpots(row: row, col: col, direction: .topright)
+        topRightSpots += getWinningSpots(row: row-1, col: col+1, direction: .bottomleft)
         if topRightSpots.count >= 4 {
             winningSpots += topRightSpots
             print("We won top right diagnally: \(winningSpots)")
+        } else {
+            print("We did not win top right diagnally: \(topRightSpots)")
         }
             
-            // Draw
-        else {
+            // Check for draw
+        if winningSpots.count == 0 {
             for tiles in board {
                 for tile in tiles {
                     if tile.getSelection() == "x" || tile.getSelection() == "o" {
@@ -232,10 +233,10 @@ class Tile: UIView {
     
     func setupTile(row: Int, col: Int) {
         if row % 2 == col % 2 {
-            self.backgroundColor = #colorLiteral(red: 0.1173805073, green: 0.1210005507, blue: 0.1472901702, alpha: 1)
+            self.backgroundColor = #colorLiteral(red: 1, green: 0.6666666667, blue: 0.6470588235, alpha: 1)
         }
         else {
-            self.backgroundColor = #colorLiteral(red: 0.1561887264, green: 0.2134434581, blue: 0.3347036242, alpha: 1)
+            self.backgroundColor = #colorLiteral(red: 0, green: 1, blue: 0.3095569349, alpha: 1)
         }
     }
     
@@ -258,7 +259,7 @@ class Tile: UIView {
             }
             else {
                 selection = "o"
-                selectionView.backgroundColor = #colorLiteral(red: 1, green: 0.9933961034, blue: 0.9312321544, alpha: 1)
+                selectionView.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
                 selectionView.layer.cornerRadius = selectionFrame.width / 2
                 playSound(soundName: "Pop 2", fileType: "wav")
             }
