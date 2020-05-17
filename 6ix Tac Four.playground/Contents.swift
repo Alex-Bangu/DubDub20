@@ -9,6 +9,7 @@ import AVFoundation
 
 let kBoardWidth = 6
 let kBoardHeight = 6
+let kWinningLength = 6
 
 var xTurn = true // Declare xTurn, holds the current turn
 var player: AVAudioPlayer? // Declare optional of AVAudioPlayer
@@ -139,7 +140,7 @@ class GameController: UIView {
             // Vertical win
         var verticalSpots = getWinningSpots(row: row, col: col, direction: .top)
         verticalSpots += getWinningSpots(row: row, col: col+1, direction: .bottom)
-        if verticalSpots.count >= 4 {
+        if verticalSpots.count >= kWinningLength {
             winningSpots += verticalSpots
             print("We won vertically: \(winningSpots)")
         } else {
@@ -148,7 +149,7 @@ class GameController: UIView {
             
         var horizontalSpots = getWinningSpots(row: row, col: col, direction: .left)
         horizontalSpots += getWinningSpots(row: row+1, col: col, direction: .right)
-        if horizontalSpots.count >= 4 {
+        if horizontalSpots.count >= kWinningLength {
             winningSpots += horizontalSpots
             print("We won horizontally: \(winningSpots)")
         } else {
@@ -157,7 +158,7 @@ class GameController: UIView {
             
         var topLeftSpots = getWinningSpots(row: row, col: col, direction: .topleft)
         topLeftSpots += getWinningSpots(row: row+1, col: col+1, direction: .bottomright)
-        if topLeftSpots.count >= 4 {
+        if topLeftSpots.count >= kWinningLength {
             winningSpots += topLeftSpots
             print("We won top left diagnally: \(winningSpots)")
         } else {
@@ -166,7 +167,7 @@ class GameController: UIView {
             
         var topRightSpots = getWinningSpots(row: row, col: col, direction: .topright)
         topRightSpots += getWinningSpots(row: row-1, col: col+1, direction: .bottomleft)
-        if topRightSpots.count >= 4 {
+        if topRightSpots.count >= kWinningLength {
             winningSpots += topRightSpots
             print("We won top right diagnally: \(winningSpots)")
         } else {
