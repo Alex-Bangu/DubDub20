@@ -1,14 +1,13 @@
-/* property of myselfs
- copyright 2020 Alex Bangu
+/* copyright 2020 Alex Bangu
  all rights reserved */
 
 import UIKit
 import PlaygroundSupport
 import AVFoundation
 
-let kBoardWidth = 3
+let kBoardWidth = 6
 let kBoardHeight = kBoardWidth
-let kWinningLength = kBoardWidth
+let kWinningLength = 4
 
 var xTurn = true
 var isGameOver = false
@@ -41,6 +40,9 @@ func playSound(soundName: String, fileType: String) {
 
 class GameController: UIView {
     var board = Array(repeating: Array(repeating: Tile(), count: kBoardWidth), count: kBoardHeight)
+    var isAIEnabled = false
+    var aiSwitch: UISwitch?
+    var aiLabel: UILabel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,11 +53,20 @@ class GameController: UIView {
     }
     
     convenience init() {
-        let viewFrame = CGRect(x: 0, y: 0, width: 500, height: 500)
+        let viewFrame = CGRect(x: 0, y: 0, width: 500, height: 550)
         self.init(frame: viewFrame)
         
-        self.backgroundColor = .black
+        self.aiSwitch = UISwitch(frame: CGRect(x: 225, y: 509, width: 50, height: 50))
+        self.aiSwitch!.addTarget(self, action: #selector(GameController.aiSwitchToggled(_:)), for: UIControl.Event.valueChanged)
+        
+        self.aiLabel = UILabel(frame: CGRect(x:200, y:514, width: 50, height: 22))
+        self.aiLabel!.text = "AI"
+        
+        self.backgroundColor = .white
         resetBoard(initial: true)
+        
+        self.addSubview(self.aiSwitch!)
+        self.addSubview(self.aiLabel!)
     }
 
     @objc func resetBoard(initial: Bool) {
@@ -64,6 +75,10 @@ class GameController: UIView {
         }
         
         for view in self.subviews {
+            if view == self.aiSwitch || view == self.aiLabel{
+                continue
+            }
+            
             UIView.transition(with: self, duration: 0.3, options: [.transitionCurlUp, .curveEaseOut], animations: {
                 view.removeFromSuperview()
             }, completion: nil )
@@ -80,6 +95,14 @@ class GameController: UIView {
         isGameOver = false
     }
     
+    @objc public func aiSwitchToggled(_ sender: UISwitch) {
+        self.isAIEnabled = sender.isOn
+        
+        if self.isAIEnabled && !xTurn && !isGameOver {
+            self.runAI()
+        }
+    }
+    
     func runAI() {
         var row = Int.random(in: 0..<kBoardWidth)
         var col = Int.random(in: 0..<kBoardHeight)
@@ -91,6 +114,8 @@ class GameController: UIView {
         
         board[row][col].setSelection(change: (xTurn ? "x" : "o"))
         checkForWin(row: row, col: col)
+        
+        xTurn = !xTurn
     }
     
     func getWinningSpots(row: Int, col: Int, direction: LineDirection) -> [[Int]] {
@@ -193,7 +218,7 @@ class GameController: UIView {
         if !winningSpots.isEmpty || fullCount == (kBoardWidth * kBoardHeight) {
             isGameOver = true
             
-            Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(resetBoard), userInfo: nil, repeats: false)
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(resetBoard), userInfo: nil, repeats: false)
             
             for tiles in board {
                 for tile in tiles {
@@ -277,9 +302,9 @@ class Tile: UIView {
         let winFrame = UIView(frame: selectionFrame)
 
         if (x) {
-            winFrame.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 0.5)
+            winFrame.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 0.7391909247)
         } else {
-            winFrame.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 0.5)
+            winFrame.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 0.6474743151)
         }
 
         UIView.transition(with: self, duration: 0.30, options: [.transitionFlipFromTop, .curveEaseOut], animations: {
@@ -311,10 +336,8 @@ class Tile: UIView {
             xTurn = !xTurn
         }
         
-        if !xTurn {
-            // Run AI
+        if controller.isAIEnabled && !xTurn{
             controller.runAI()
-            xTurn = !xTurn
         }
     }
 }
