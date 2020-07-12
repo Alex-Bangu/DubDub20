@@ -1,0 +1,632 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FF87E07E24A2636100777071 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF87E07D24A2636100777071 /* AppDelegate.swift */; };
+		FF87E08024A2636100777071 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF87E07F24A2636100777071 /* SceneDelegate.swift */; };
+		FF87E08224A2636100777071 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF87E08124A2636100777071 /* ViewController.swift */; };
+		FF87E08524A2636100777071 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF87E08324A2636100777071 /* Main.storyboard */; };
+		FF87E08724A2636300777071 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF87E08624A2636300777071 /* Assets.xcassets */; };
+		FF87E08A24A2636300777071 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF87E08824A2636300777071 /* LaunchScreen.storyboard */; };
+		FF87E09524A2636300777071 /* _ix_tac_FourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF87E09424A2636300777071 /* _ix_tac_FourTests.swift */; };
+		FF87E0A024A2636300777071 /* _ix_tac_FourUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF87E09F24A2636300777071 /* _ix_tac_FourUITests.swift */; };
+		FF87E0B724A313ED00777071 /* Page Flip.wav in Resources */ = {isa = PBXBuildFile; fileRef = FF87E0B224A313ED00777071 /* Page Flip.wav */; };
+		FF87E0B824A313ED00777071 /* Pop 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FF87E0B324A313ED00777071 /* Pop 2.wav */; };
+		FF87E0B924A313ED00777071 /* Snap.wav in Resources */ = {isa = PBXBuildFile; fileRef = FF87E0B424A313ED00777071 /* Snap.wav */; };
+		FF87E0BA24A313ED00777071 /* Ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = FF87E0B524A313ED00777071 /* Ding.wav */; };
+		FF87E0BB24A313ED00777071 /* Pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = FF87E0B624A313ED00777071 /* Pop.wav */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF87E09124A2636300777071 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF87E07224A2636100777071 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF87E07924A2636100777071;
+			remoteInfo = "6ix tac Four";
+		};
+		FF87E09C24A2636300777071 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF87E07224A2636100777071 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF87E07924A2636100777071;
+			remoteInfo = "6ix tac Four";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FF87E07A24A2636100777071 /* 6ix tac Four.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "6ix tac Four.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF87E07D24A2636100777071 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FF87E07F24A2636100777071 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FF87E08124A2636100777071 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF87E08424A2636100777071 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FF87E08624A2636300777071 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF87E08924A2636300777071 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FF87E08B24A2636300777071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF87E09024A2636300777071 /* 6ix tac FourTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "6ix tac FourTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF87E09424A2636300777071 /* _ix_tac_FourTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ix_tac_FourTests.swift; sourceTree = "<group>"; };
+		FF87E09624A2636300777071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF87E09B24A2636300777071 /* 6ix tac FourUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "6ix tac FourUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF87E09F24A2636300777071 /* _ix_tac_FourUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ix_tac_FourUITests.swift; sourceTree = "<group>"; };
+		FF87E0A124A2636300777071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF87E0B224A313ED00777071 /* Page Flip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Page Flip.wav"; sourceTree = "<group>"; };
+		FF87E0B324A313ED00777071 /* Pop 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Pop 2.wav"; sourceTree = "<group>"; };
+		FF87E0B424A313ED00777071 /* Snap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Snap.wav; sourceTree = "<group>"; };
+		FF87E0B524A313ED00777071 /* Ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Ding.wav; sourceTree = "<group>"; };
+		FF87E0B624A313ED00777071 /* Pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Pop.wav; sourceTree = "<group>"; };
+		FFE9901324BB888100F6AC71 /* 6ix tac Four.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "6ix tac Four.entitlements"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF87E07724A2636100777071 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF87E08D24A2636300777071 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF87E09824A2636300777071 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FF87E07124A2636100777071 = {
+			isa = PBXGroup;
+			children = (
+				FF87E07C24A2636100777071 /* 6ix tac Four */,
+				FF87E09324A2636300777071 /* 6ix tac FourTests */,
+				FF87E09E24A2636300777071 /* 6ix tac FourUITests */,
+				FF87E07B24A2636100777071 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FF87E07B24A2636100777071 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF87E07A24A2636100777071 /* 6ix tac Four.app */,
+				FF87E09024A2636300777071 /* 6ix tac FourTests.xctest */,
+				FF87E09B24A2636300777071 /* 6ix tac FourUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF87E07C24A2636100777071 /* 6ix tac Four */ = {
+			isa = PBXGroup;
+			children = (
+				FFE9901324BB888100F6AC71 /* 6ix tac Four.entitlements */,
+				FF87E0B124A313C000777071 /* Resources */,
+				FF87E07D24A2636100777071 /* AppDelegate.swift */,
+				FF87E07F24A2636100777071 /* SceneDelegate.swift */,
+				FF87E08124A2636100777071 /* ViewController.swift */,
+				FF87E08324A2636100777071 /* Main.storyboard */,
+				FF87E08624A2636300777071 /* Assets.xcassets */,
+				FF87E08824A2636300777071 /* LaunchScreen.storyboard */,
+				FF87E08B24A2636300777071 /* Info.plist */,
+			);
+			path = "6ix tac Four";
+			sourceTree = "<group>";
+		};
+		FF87E09324A2636300777071 /* 6ix tac FourTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF87E09424A2636300777071 /* _ix_tac_FourTests.swift */,
+				FF87E09624A2636300777071 /* Info.plist */,
+			);
+			path = "6ix tac FourTests";
+			sourceTree = "<group>";
+		};
+		FF87E09E24A2636300777071 /* 6ix tac FourUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FF87E09F24A2636300777071 /* _ix_tac_FourUITests.swift */,
+				FF87E0A124A2636300777071 /* Info.plist */,
+			);
+			path = "6ix tac FourUITests";
+			sourceTree = "<group>";
+		};
+		FF87E0B124A313C000777071 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF87E0B524A313ED00777071 /* Ding.wav */,
+				FF87E0B224A313ED00777071 /* Page Flip.wav */,
+				FF87E0B324A313ED00777071 /* Pop 2.wav */,
+				FF87E0B624A313ED00777071 /* Pop.wav */,
+				FF87E0B424A313ED00777071 /* Snap.wav */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF87E07924A2636100777071 /* 6ix tac Four */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF87E0A424A2636300777071 /* Build configuration list for PBXNativeTarget "6ix tac Four" */;
+			buildPhases = (
+				FF87E07624A2636100777071 /* Sources */,
+				FF87E07724A2636100777071 /* Frameworks */,
+				FF87E07824A2636100777071 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "6ix tac Four";
+			productName = "6ix tac Four";
+			productReference = FF87E07A24A2636100777071 /* 6ix tac Four.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FF87E08F24A2636300777071 /* 6ix tac FourTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF87E0A724A2636300777071 /* Build configuration list for PBXNativeTarget "6ix tac FourTests" */;
+			buildPhases = (
+				FF87E08C24A2636300777071 /* Sources */,
+				FF87E08D24A2636300777071 /* Frameworks */,
+				FF87E08E24A2636300777071 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF87E09224A2636300777071 /* PBXTargetDependency */,
+			);
+			name = "6ix tac FourTests";
+			productName = "6ix tac FourTests";
+			productReference = FF87E09024A2636300777071 /* 6ix tac FourTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FF87E09A24A2636300777071 /* 6ix tac FourUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF87E0AA24A2636300777071 /* Build configuration list for PBXNativeTarget "6ix tac FourUITests" */;
+			buildPhases = (
+				FF87E09724A2636300777071 /* Sources */,
+				FF87E09824A2636300777071 /* Frameworks */,
+				FF87E09924A2636300777071 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF87E09D24A2636300777071 /* PBXTargetDependency */,
+			);
+			name = "6ix tac FourUITests";
+			productName = "6ix tac FourUITests";
+			productReference = FF87E09B24A2636300777071 /* 6ix tac FourUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF87E07224A2636100777071 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					FF87E07924A2636100777071 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					FF87E08F24A2636300777071 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = FF87E07924A2636100777071;
+					};
+					FF87E09A24A2636300777071 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = FF87E07924A2636100777071;
+					};
+				};
+			};
+			buildConfigurationList = FF87E07524A2636100777071 /* Build configuration list for PBXProject "6ix tac Four" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FF87E07124A2636100777071;
+			productRefGroup = FF87E07B24A2636100777071 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF87E07924A2636100777071 /* 6ix tac Four */,
+				FF87E08F24A2636300777071 /* 6ix tac FourTests */,
+				FF87E09A24A2636300777071 /* 6ix tac FourUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF87E07824A2636100777071 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF87E08A24A2636300777071 /* LaunchScreen.storyboard in Resources */,
+				FF87E0B724A313ED00777071 /* Page Flip.wav in Resources */,
+				FF87E0BB24A313ED00777071 /* Pop.wav in Resources */,
+				FF87E0B824A313ED00777071 /* Pop 2.wav in Resources */,
+				FF87E08724A2636300777071 /* Assets.xcassets in Resources */,
+				FF87E0B924A313ED00777071 /* Snap.wav in Resources */,
+				FF87E0BA24A313ED00777071 /* Ding.wav in Resources */,
+				FF87E08524A2636100777071 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF87E08E24A2636300777071 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF87E09924A2636300777071 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF87E07624A2636100777071 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF87E08224A2636100777071 /* ViewController.swift in Sources */,
+				FF87E07E24A2636100777071 /* AppDelegate.swift in Sources */,
+				FF87E08024A2636100777071 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF87E08C24A2636300777071 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF87E09524A2636300777071 /* _ix_tac_FourTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF87E09724A2636300777071 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF87E0A024A2636300777071 /* _ix_tac_FourUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF87E09224A2636300777071 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF87E07924A2636100777071 /* 6ix tac Four */;
+			targetProxy = FF87E09124A2636300777071 /* PBXContainerItemProxy */;
+		};
+		FF87E09D24A2636300777071 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF87E07924A2636100777071 /* 6ix tac Four */;
+			targetProxy = FF87E09C24A2636300777071 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FF87E08324A2636100777071 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF87E08424A2636100777071 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FF87E08824A2636300777071 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF87E08924A2636300777071 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FF87E0A224A2636300777071 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FF87E0A324A2636300777071 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF87E0A524A2636300777071 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "6ix tac Four/6ix tac Four.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TTKW8435L8;
+				INFOPLIST_FILE = "6ix tac Four/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.alexbangu.sixtacfour;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "2,6";
+			};
+			name = Debug;
+		};
+		FF87E0A624A2636300777071 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "6ix tac Four/6ix tac Four.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TTKW8435L8;
+				INFOPLIST_FILE = "6ix tac Four/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.alexbangu.sixtacfour;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "2,6";
+			};
+			name = Release;
+		};
+		FF87E0A824A2636300777071 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TTKW8435L8;
+				INFOPLIST_FILE = "6ix tac FourTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexbangu.-ix-tac-FourTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/6ix tac Four.app/6ix tac Four";
+			};
+			name = Debug;
+		};
+		FF87E0A924A2636300777071 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TTKW8435L8;
+				INFOPLIST_FILE = "6ix tac FourTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexbangu.-ix-tac-FourTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/6ix tac Four.app/6ix tac Four";
+			};
+			name = Release;
+		};
+		FF87E0AB24A2636300777071 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TTKW8435L8;
+				INFOPLIST_FILE = "6ix tac FourUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexbangu.-ix-tac-FourUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "6ix tac Four";
+			};
+			name = Debug;
+		};
+		FF87E0AC24A2636300777071 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TTKW8435L8;
+				INFOPLIST_FILE = "6ix tac FourUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexbangu.-ix-tac-FourUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "6ix tac Four";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF87E07524A2636100777071 /* Build configuration list for PBXProject "6ix tac Four" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF87E0A224A2636300777071 /* Debug */,
+				FF87E0A324A2636300777071 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF87E0A424A2636300777071 /* Build configuration list for PBXNativeTarget "6ix tac Four" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF87E0A524A2636300777071 /* Debug */,
+				FF87E0A624A2636300777071 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF87E0A724A2636300777071 /* Build configuration list for PBXNativeTarget "6ix tac FourTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF87E0A824A2636300777071 /* Debug */,
+				FF87E0A924A2636300777071 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF87E0AA24A2636300777071 /* Build configuration list for PBXNativeTarget "6ix tac FourUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF87E0AB24A2636300777071 /* Debug */,
+				FF87E0AC24A2636300777071 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FF87E07224A2636100777071 /* Project object */;
+}
